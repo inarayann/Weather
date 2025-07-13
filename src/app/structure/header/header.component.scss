@@ -1,0 +1,47 @@
+
+.navbar-nav {
+  .nav-item {
+    .nav-link {
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 400;
+      position: relative; // Needed for positioning the pseudo-element
+      padding-bottom: 0.5rem; // Add some space for the underline
+      text-decoration: none; // Remove default underline if any
+
+      // Remove the direct color/font-weight transition from the link itself
+      // because the "moving" effect will be on the pseudo-element.
+      // We can keep a subtle transition for text color if desired.
+      transition: color 0.2s ease-in-out;
+
+      // --- The Sliding Underline ---
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0; // Position at the bottom of the link
+        left: 0;
+        width: 0; // Start with no width
+        height: 2px; // Thickness of the underline
+        background-color: white; // Color of the underline
+        transition: width 0.2s ease-out; // Smooth transition for width change
+      }
+
+      // When hovered or focused, expand the underline
+      &:hover::after,
+      &:focus::after {
+        width: 100%; // Expand to full width on hover
+      }
+
+      // When the link is active, make the underline visible
+      &.active {
+        font-weight: 700 !important;
+        color: white !important;
+
+        &::after {
+          width: 100%; // Make it full width when active
+          // You could use a different color for active state if needed
+          // background-color: #007bff; // Example: Bootstrap primary blue
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+<div class="footer-wrapper gradient-lr-dark-to-light"> <footer class="glass-footer text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-lg-3 mb-4 mb-md-0 d-flex flex-column align-items-center align-items-md-start">
+          <h5 class="fw-bold mb-3">Weather App</h5>
+          <p class="text-muted small text-center text-md-start">
+            Your trusted companion for accurate weather forecasts, travel planning, and celestial insights.
+          </p>
+          <p class="text-muted small">&copy; {{ currentYear }} Weather App. All rights reserved.</p>
+        </div>
+
+        <div class="col-md-2 col-lg-2 mb-3 mb-md-0">
+          <h5 class="fw-bold mb-3 d-flex justify-content-between align-items-center">
+            Quick Links
+            <button class="btn btn-link d-md-none text-white p-0" type="button" data-bs-toggle="collapse" data-bs-target="#quickLinksCollapse" aria-expanded="false" aria-controls="quickLinksCollapse">
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h5>
+          <div class="collapse d-md-block" id="quickLinksCollapse">
+            <ul class="list-unstyled">
+              <li class="mb-2"><a [routerLink]="['/']" class="text-white text-decoration-none hover-underline">Home</a></li>
+              <li class="mb-2"><a [routerLink]="['/search']" class="text-white text-decoration-none hover-underline">Search Weather</a></li>
+              <li class="mb-2"><a [routerLink]="['/travel']" class="text-white text-decoration-none hover-underline">Travel Weather</a></li>
+              <li class="mb-2"><a [routerLink]="['/my-cities']" class="text-white text-decoration-none hover-underline">My Cities</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-2 col-lg-2 mb-3 mb-md-0">
+          <h5 class="fw-bold mb-3 d-flex justify-content-between align-items-center">
+            Features
+            <button class="btn btn-link d-md-none text-white p-0" type="button" data-bs-toggle="collapse" data-bs-target="#featuresCollapse" aria-expanded="false" aria-controls="featuresCollapse">
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h5>
+          <div class="collapse d-md-block" id="featuresCollapse">
+            <ul class="list-unstyled">
+              <li class="mb-2"><a [routerLink]="['/astronomy']" class="text-white text-decoration-none hover-underline">Astronomy</a></li>
+              <li class="mb-2"><a [routerLink]="['/forecasting']" class="text-white text-decoration-none hover-underline">Forecasting</a></li>
+              <li class="mb-2"><a [routerLink]="['/maps']" class="text-white text-decoration-none hover-underline">Weather Maps</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-2 col-lg-2 mb-3 mb-md-0">
+          <h5 class="fw-bold mb-3 d-flex justify-content-between align-items-center">
+            Support
+            <button class="btn btn-link d-md-none text-white p-0" type="button" data-bs-toggle="collapse" data-bs-target="#supportCollapse" aria-expanded="false" aria-controls="supportCollapse">
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h5>
+          <div class="collapse d-md-block" id="supportCollapse">
+            <ul class="list-unstyled">
+              <li class="mb-2"><a [routerLink]="['/faq']" class="text-white text-decoration-none hover-underline">FAQ</a></li>
+              <li class="mb-2"><a [routerLink]="['/contact']" class="text-white text-decoration-none hover-underline">Contact Us</a></li>
+              <li class="mb-2"><a [routerLink]="['/privacy']" class="text-white text-decoration-none hover-underline">Privacy Policy</a></li>
+              <li class="mb-2"><a [routerLink]="['/terms']" class="text-white text-decoration-none hover-underline">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-2 col-lg-3">
+          <h5 class="fw-bold mb-3">Connect With Us</h5>
+          <div class="d-flex justify-content-center justify-content-md-start">
+            <a href="https://facebook.com" target="_blank" class="text-white me-3 fs-4 hover-scale"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank" class="text-white me-3 fs-4 hover-scale"><i class="bi bi-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" class="text-white me-3 fs-4 hover-scale"><i class="bi bi-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="text-white fs-4 hover-scale"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

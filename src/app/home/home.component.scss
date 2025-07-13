@@ -1,0 +1,123 @@
+/* src/app/home/home.component.scss */
+
+.home-page-container {
+  overflow-x: hidden; // Prevent horizontal scroll
+}
+/* src/app/home/home.component.scss */
+
+.hero-section {
+  // Define CSS custom properties (variables)
+  // --hero-gradient-overlay will be set dynamically from TypeScript
+  --hero-gradient-overlay: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Fallback/initial dark overlay */
+  
+  // --hover-overlay-opacity controls the transparency of an additional black layer
+  // It's 0 by default (transparent)
+  --hover-overlay-opacity: 0;
+
+  // Layered background-images:
+  // 1. Your time-based dynamic gradient (from TS)
+  // 2. An additional black overlay whose opacity is controlled by --hover-overlay-opacity (for hover effect)
+  // 3. The base background image
+  background-image:
+    var(--hero-gradient-overlay), /* This is the time-based dynamic gradient */
+    linear-gradient(rgba(0, 0, 0, var(--hover-overlay-opacity)), rgba(0, 0, 0, var(--hover-overlay-opacity))), /* This is the black overlay for hover */
+    url('/assets/weather-background.png'); /* Your base image */
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat; /* Ensure image doesn't repeat */
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5rem 1rem;
+border-radius:10px;
+  // Transition for smooth changes to background-image (both dynamic and hover)
+  // The 1s duration is for time-based changes. The hover effect will also be smooth.
+  transition: background-image 1s ease-in-out, --hover-overlay-opacity 0.3s ease-out; 
+
+  // Hover state for the .hero-section
+  &:hover {
+    // On hover, we simply change the value of --hover-overlay-opacity
+    // This makes the *second* gradient layer (the black overlay) slightly visible,
+    // darkening the existing time-based gradient on top of the image.
+    --hover-overlay-opacity: 0.15; /* Adjust this value (e.g., 0.1 to 0.3) for desired darkening */
+  }
+}
+// Custom color for the evening icon
+.text-orange-custom {
+  color: #ffa500 !important; // A vibrant orange color
+}
+
+.hero-icon i {
+  // Add a transition to the icon for smooth changes in its class (and thus type/color)
+  transition: all 1s ease-in-out; 
+}
+// Keep your other styles if any
+.home-page-container {
+  overflow-x: hidden;
+}
+
+.hero-icon {
+  margin-top: 2rem;
+}
+
+.feature-section {
+  padding: 5rem 0;
+}
+
+.hero-icon {
+  margin-top: 2rem;
+}
+
+.feature-section {
+  padding: 5rem 0;
+  border-radius:10px;
+  margin: 8.5px 0;
+
+}
+
+.glass-image-container {
+  position: relative; 
+  display: inline-block; 
+  border-radius: 1rem; 
+  overflow: hidden; 
+  padding: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+border-radius:10px;
+
+  // Styling for the actual image inside the container
+  img {
+    display: block; // Removes extra space below image
+    width: 100%; 
+    height: auto;
+    border-radius: inherit; 
+    position: relative; 
+    z-index: 2;
+    border-radius:10px;
+
+  }
+
+  // The pseudo-element that creates the glass effect
+  &::before {
+    content: '';
+    position: absolute;
+    // Position slightly inset to cover the padding area
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: inherit; 
+
+    background-color: rgba(255, 255, 255, 0.05);
+    
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); // For Safari compatibility
+
+    z-index: 1; 
+  }
+}

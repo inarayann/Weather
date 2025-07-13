@@ -1,0 +1,103 @@
+<div class="home-page-container container-fluid p-0">
+
+  <section class="hero-section text-white d-flex flex-column justify-content-center align-items-center text-center p-5"
+  [style.--hero-gradient-overlay]="heroGradientOverlay">
+    <h1 class="display-3 fw-bold mb-3 animate__animated animate__fadeInDown">Your Daily Weather Companion</h1>
+    <p class="lead mb-4 animate__animated animate__fadeInUp">
+      Accurate forecasts, travel planning, and celestial insights.
+      **Start exploring weather conditions in any city from our search page!**
+    </p>
+
+    <div class="hero-icon animate__animated animate__zoomIn">
+      <i class="bi fs-1" [ngClass]="[heroIconClass, heroIconColorClass]"></i>
+    </div>
+  </section>
+
+  <section class="feature-section py-5 gradient-lr-dark-to-light">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-md-6 order-md-1 animate__animated animate__fadeInLeft">
+          <h2 class="display-5 fw-bold mb-3">Instant City Weather Search</h2>
+          <p class="lead ">
+            Simply head over to our **Search page** to get real-time weather updates for any city worldwide.
+            From temperature to humidity, wind speed, and more – all at your fingertips.
+          </p>
+          <p class=" small">
+            (Find the search functionality on the dedicated 'Search' component linked in the navigation.)
+          </p>
+        </div>
+        <div class="col-md-6 order-md-2 text-center animate__animated animate__fadeInRight">
+          <img src="assets/city-weather-mockup.png" class="img-fluid rounded shadow-lg" alt="City Weather Search Mockup">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section py-5 gradient-rl-dark-to-light">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-md-6 text-center animate__animated animate__fadeInLeft">
+          <img src="assets/travel-weather-mockup.png" class="img-fluid rounded shadow-lg" alt="Travel Weather Comparison">
+        </div>
+        <div class="col-md-6 animate__animated animate__fadeInRight">
+          <h2 class="display-5 fw-bold mb-3">Plan Your Journeys with Confidence</h2>
+          <p class="lead ">
+            Traveling soon? Our unique feature allows you to compare weather conditions
+            between your origin and destination cities, helping you pack smart and plan for any climate.
+          </p>
+          <p class=" small">
+            (Access this travel planner from the 'Travel Weather' component in our main navigation.)
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section py-5 gradient-lr-dark-to-light">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-md-6 order-md-1 animate__animated animate__fadeInLeft">
+          <h2 class="display-5 fw-bold mb-3">Organize Your Favorite Locations</h2>
+          <p class="lead ">
+            Create personalized weather lists like "My List" and "Her List" to quickly
+            monitor conditions in your most important places – family, friends, or future travel spots.
+          </p>
+          <p class=" small">
+            (Manage your custom weather lists on the 'My Cities' or 'Saved Locations' component.)
+          </p>
+        </div>
+        <div class="col-md-6 order-md-2 text-center animate__animated animate__fadeInRight">
+          <img src="assets/custom-lists-mockup.png" class="img-fluid rounded shadow-lg" alt="Custom Weather Lists">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="insights-section py-5 gradient-rl-dark-to-light text-white">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col-12">
+          <h2 class="display-5 fw-bold animate__animated animate__fadeInDown">Dive Deeper into the Sky</h2>
+          <p class="lead text-white-50 animate__animated animate__fadeInUp">
+            Beyond daily forecasts, uncover the wonders of the cosmos and detailed weather trends.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4 justify-content-center">
+        @for(item of featureHighlights; track item){
+          <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+            <div class="card bg-secondary text-white shadow-sm h-100">
+              <div class="card-body text-center d-flex flex-column">
+                <i class="{{ item.iconClass }} fs-1 mb-3"></i> <h3 class="card-title h5 mb-3">{{ item.title }}</h3>
+                <p class="card-text flex-grow-1">{{ item.description }}</p>
+                <a  class="btn btn-outline-light mt-auto">Learn More</a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+</div>

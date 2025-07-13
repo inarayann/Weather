@@ -1,1 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'animate.css';
+
+:root {
+  // Default (large screen) header height
+  --header-height: 80px; /* IMPORTANT: Replace with your actual header's height on large screens */
+  // Default (large screen) footer height
+  --footer-height: 273px; /* From your input for large screens */
+}
+
+/* 2. Adjust header and footer heights for mobile screens using a media query */
+@media (max-width: 767.98px) { /* Adjust breakpoint if your mobile styles kick in at a different width */
+  :root {
+    --header-height: 80px; /* IMPORTANT: Replace with your actual header's height on mobile */
+    --footer-height: 500px; /* From your input for mobile screens */
+  }
+}
+
+/* 3. Set the min-height for the div wrapping your router-outlet */
+.main-content-area { /* This is the div around your <router-outlet> */
+  /* Calculate min-height: 100% of viewport height minus header and footer heights */
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  max-height: 100% !important;
+
+  /* Optional: If content overflows horizontally, hide the scrollbar */
+  overflow-x: hidden;
+  /* Optional: If you want content to scroll only within this div if it's too long */
+  /* overflow-y: auto; */
+}
+
+html,
+body {
+  height: 100%; /* Important for min-height: 100vh on body to work correctly */
+  margin: 0;
+  padding: 0 20px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  // font-family: "Mynerve", cursive !important;
+   font-family: "The Girl Next Door", cursive !important;
+}
+p{
+  font-weight: bold ;
+}
+
+body {
+  display: flex; /* Enable Flexbox on the body */
+  flex-direction: column; /* Arrange children (header, main, footer) vertically */
+  min-height: 100vh; /* Ensure the body is at least 100% of the viewport height */
+  overflow-x: hidden; /* Prevent horizontal scroll if content overflows */
+  // font-family: "Mynerve", cursive !important;
+   font-family: "The Girl Next Door", cursive !important;
+}
+
+/* The <main> element should grow to fill any available space */
+main {
+  flex-grow: 1; /* This is the magic property. It makes 'main' expand */
+  /* Optional: You can set a min-height here if you want individual empty routes
+     to have a certain visible height before the footer.
+     e.g., min-height: 200px;
+     However, flex-grow: 1 generally handles pushing the footer down adequately.
+  */
+}
+/* Updated Left to Right Gradient: Blended Edges */
+.gradient-lr-dark-to-light {
+  /* Ensure a fallback solid color in case gradient fails */
+  background: #1a1b1c; 
+ background: linear-gradient(90deg, rgb(159, 167, 177) 0%, rgb(122 166 209) 5%, rgb(215, 217, 216) 43%, #6e6e6e 75%, rgb(94, 94, 94) 95%, rgb(71 63 79 / 92%) 100%);
+}
+
+/* Updated Right to Left Gradient: Blended Edges */
+.gradient-rl-dark-to-light {
+  /* Ensure a fallback solid color */
+  background: #1a1b1c;
+  background: linear-gradient(276deg, rgb(155 158 161) 0%, rgb(161 197 233) 5%, #dedee1 43%, rgb(150, 147, 144) 75%, rgb(190 195 204 / 25%) 95%, #8ea9ae 100%);
+  /* Example sizing for demonstration */
+  /* height: 150px; */
+  /* width: 100%; */
+}

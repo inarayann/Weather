@@ -1,0 +1,39 @@
+
+/* Footer Specific Styles */
+.footer-wrapper {
+  /* No specific height, let content define it */
+  position: relative; /* Needed for any fixed-positioning later, or if content scrolls behind */
+  z-index: 0; /* Ensure this is below the glass footer if needed */
+}
+
+.glass-footer {
+  /* This is the actual footer content container */
+  background-color: rgba(255, 255, 255, 0.05); /* Slight white tint for the glass effect */
+  backdrop-filter: blur(10px); /* The frosted glass blur */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border for definition */
+  z-index: 1; /* Ensure this is above the gradient wrapper */
+
+  /* Link hover effect */
+  .hover-underline:hover {
+    text-decoration: underline !important;
+  }
+  .hover-scale:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* Adjust chevron icon direction for collapsible */
+  .btn[aria-expanded="true"] .bi-chevron-down {
+    transform: rotate(180deg);
+  }
+  .btn .bi-chevron-down {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  button{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+}
