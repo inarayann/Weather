@@ -6,4 +6,5 @@ export interface User {
   name: string;
   dob: string | null;
   rememberMe:boolean;
+  accessToken:string | null;
 }

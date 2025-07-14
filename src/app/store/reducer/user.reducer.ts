@@ -1,6 +1,7 @@
+// src/app/store/reducer/user.reducer.ts
 import { createReducer, on } from '@ngrx/store';
-import { User } from '../constant/interface';
 import { UserActions, UserApiActions } from '../action/user.action';
+import { User } from '../constant/interface';
 
 export interface AuthState {
   currentUser: User | null;
@@ -24,7 +25,7 @@ export const userReducer = createReducer(
     loading: true,
     error: null,
   })),
-  on(UserActions.registerRequest, (state) => ({
+  on(UserActions.registerRequest, (state) => ({ // Register request starts loading
     ...state,
     loading: true,
     error: null,
@@ -41,6 +42,16 @@ export const userReducer = createReducer(
     isAuthenticated: true,
     loading: false,
     error: null,
+    token:user.accessToken
+  })),
+  on(UserApiActions.refreshTokenError, (state, { error }) => ({
+    ...state,
+    error: error,
+  })),
+  on(UserApiActions.refreshTokenSucess, (state, {token, message }) => ({
+    ...state,
+    token:token,
+    message:message
   })),
   on(UserApiActions.registerSuccess, (state, { user }) => ({
     ...state,

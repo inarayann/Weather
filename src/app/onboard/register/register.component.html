@@ -1,1 +1,98 @@
-<p>register works!</p>
+<div class="register-container">
+  <form [formGroup]="register_Form" (ngSubmit)="onSubmit()">
+
+    <h2>Register for an Account</h2>
+
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input id="username" type="text" formControlName="username" class="form-control">
+      <div *ngIf="register_Form?.get('username')?.invalid && (register_Form?.get('username')?.dirty || register_Form?.get('username')?.touched)" class="error-message">
+        <div *ngIf="register_Form?.get('username')?.errors?.['required']">Username is required.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Full Name (Optional):</label>
+      <input id="name" type="text" formControlName="name" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" class="form-control">
+      <div *ngIf="register_Form?.get('email')?.invalid && (register_Form?.get('email')?.dirty || register_Form?.get('email')?.touched)" class="error-message">
+        <div *ngIf="register_Form?.get('email')?.errors?.['required']">Email is required.</div>
+        <div *ngIf="register_Form?.get('email')?.errors?.['email']">Enter a valid email address.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password" class="form-control">
+      <div *ngIf="register_Form?.get('password')?.invalid && (register_Form?.get('password')?.dirty || register_Form?.get('password')?.touched)" class="error-message">
+        <div *ngIf="register_Form?.get('password')?.errors?.['required']">Password is required.</div>
+        <div *ngIf="register_Form?.get('password')?.errors?.['minlength']">Password must be at least 8 characters.</div>
+        <div *ngIf="register_Form?.get('password')?.errors?.['maxlength']">Password cannot exceed 16 characters.</div>
+        <div *ngIf="register_Form?.get('password')?.errors?.['pattern']">Password must contain: uppercase, lowercase, number, and special character.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input id="confirmPassword" type="password" formControlName="confirmPassword" class="form-control">
+      <div *ngIf="register_Form?.get('confirmPassword')?.invalid && (register_Form?.get('confirmPassword')?.dirty || register_Form?.get('confirmPassword')?.touched)" class="error-message">
+        <div *ngIf="register_Form?.get('confirmPassword')?.errors?.['required']">Confirm password is required.</div>
+        <div *ngIf="register_Form?.get('confirmPassword')?.errors?.['mismatch']">Passwords do not match.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth (Optional):</label>
+      <input id="dob" type="date" formControlName="dob" class="form-control">
+      </div>
+
+    <!-- <fieldset formGroupName="location" class="form-group nested-group">
+      <legend>Location (Optional Lat/Lng):</legend>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="lat">Latitude:</label>
+          <input id="lat" type="number" formControlName="lat" class="form-control">
+          <div *ngIf="lat?.invalid && (lat?.dirty || lat?.touched)" class="error-message">
+            <div *ngIf="lat?.errors?.['min'] || lat?.errors?.['max']">Latitude must be between -90 and 90.</div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lng">Longitude:</label>
+          <input id="lng" type="number" formControlName="lng" class="form-control">
+          <div *ngIf="lng?.invalid && (lng?.dirty || lng?.touched)" class="error-message">
+            <div *ngIf="lng?.errors?.['min'] || lng?.errors?.['max']">Longitude must be between -180 and 180.</div>
+          </div>
+        </div>
+      </div>
+    </fieldset> -->
+
+    <div class="form-group">
+      <label for="lang">Language:</label>
+      <select id="lang" formControlName="lang" class="form-control">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="hi">Hindi</option>
+        </select>
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="message">Message (Optional):</label>
+      <textarea id="message" formControlName="message" class="form-control"></textarea>
+    </div> -->
+
+    <div *ngIf="loading$ | async" class="loading-message">Registering...</div>
+    <div *ngIf="error$ | async as error" class="error-message">
+      Error: {{ error.message || 'An unknown error occurred.' }}
+    </div>
+
+    <button type="submit" [disabled]="register_Form.invalid || (loading$ | async)" class="btn-submit">
+      Register
+    </button>
+  </form>
+
+</div>

@@ -1,5 +1,3 @@
-// src/app/service/weather/weather.service.ts
-
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -21,8 +19,8 @@ export class WeatherService {
   ) {
     // ADD THESE CONSOLE LOGS
     console.log('WeatherService: Constructor called.');
-    console.log('WeatherService: HttpClient injected:', !!this.http); // Check if http is defined
-    console.log('WeatherService: ErrorService injected:', !!this.error); // Check if error is defined
+    console.log('WeatherService: HttpClient injected:', !!this.http); 
+    console.log('WeatherService: ErrorService injected:', !!this.error); 
   }
 
   getCurrent(name:string=''): Observable<any[]> {
